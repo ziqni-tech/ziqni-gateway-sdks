@@ -1,4 +1,5 @@
 /openapi/java/generated/
+/openapi/javascript/generated/
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
@@ -37,5 +38,3 @@ build/
 .vscode/
 
 ### Mac OS ###
-/openapi/javascript/generated/
-/openapi/javascript/generated/

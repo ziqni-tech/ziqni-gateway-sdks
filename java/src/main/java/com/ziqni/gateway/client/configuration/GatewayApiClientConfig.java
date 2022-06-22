@@ -3,7 +3,7 @@
  */
 package com.ziqni.gateway.client.configuration;
 
-import com.ziqni.configuration.ConfigurationLoader;
+import com.ziqni.gateway.client.util.ConfigurationLoader;
 
 import java.util.Optional;
 

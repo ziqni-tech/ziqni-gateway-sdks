@@ -4,7 +4,7 @@
 package com.ziqni.gateway.client.streaming;
 
 import com.fasterxml.jackson.databind.JavaType;
-import com.ziqni.common.utils.ClassScanner;
+import com.ziqni.gateway.client.util.ClassScanner;
 import org.springframework.messaging.simp.stomp.StompHeaders;
 import org.springframework.messaging.simp.stomp.StompSession;
 

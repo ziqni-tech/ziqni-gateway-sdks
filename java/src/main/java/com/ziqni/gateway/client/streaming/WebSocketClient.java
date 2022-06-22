@@ -4,7 +4,7 @@
 package com.ziqni.gateway.client.streaming;
 
 import com.google.common.collect.Iterables;
-import com.ziqni.common.utils.CoreClientObjectMapper;
+import com.ziqni.gateway.client.util.CoreClientObjectMapper;
 import org.springframework.messaging.converter.MappingJackson2MessageConverter;
 import org.springframework.messaging.simp.stomp.ConnectionLostException;
 import org.springframework.messaging.simp.stomp.StompHeaders;

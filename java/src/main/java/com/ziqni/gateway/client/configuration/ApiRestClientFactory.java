@@ -3,7 +3,7 @@
  */
 package com.ziqni.gateway.client.configuration;
 
-import com.ziqni.common.utils.CoreClientObjectMapper;
+import com.ziqni.gateway.client.util.CoreClientObjectMapper;
 import com.ziqni.gateway.client.ApiClient;
 
 import javax.net.ssl.SSLContext;
