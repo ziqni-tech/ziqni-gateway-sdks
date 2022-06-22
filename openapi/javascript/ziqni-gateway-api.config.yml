@@ -1,0 +1,8 @@
+projectVersion: 0.0.1
+licenseName: "Ziqni Commercial License"
+projectDescription: "Client library for Ziqni Gateway API"
+projectName: "@ziqni-tech/gateway-api-client"
+dateLibrary: java8
+hideGenerationTimestamp: true
+files:
+

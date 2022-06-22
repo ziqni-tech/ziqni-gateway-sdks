@@ -1,0 +1,16 @@
+basePackage: com.ziqni.gateway.client
+configPackage: com.ziqni.gateway.client.config
+apiPackage: com.ziqni.gateway.client.api
+modelPackage: com.ziqni.gateway.client.model
+groupId: com.ziqni
+artifactId: ziqni-gateway-api-client
+dateLibrary: java8
+hideGenerationTimestamp: true
+files:
+  ApiClientFactory.mustache:
+    folder: src/main/java/com/ziqni/gateway/client
+    templateType: SupportingFiles
+    destinationFilename: ApiClientFactory.java
+  ws_api_delegate.mustache:
+    templateType: API
+    destinationFilename: Ws.java

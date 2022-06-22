@@ -1,0 +1,54 @@
+/*
+* Copyright (c) 2022. ZIQNI LTD registered in England and Wales, company registration number-09693684
+*/
+{{>licenseInfo}}
+package {{invokerPackage}};
+
+import com.ziqni.gateway.client.configuration.ApiRestClientFactory;
+import {{invokerPackage}}.configuration.GatewayApiClientConfig;
+import {{invokerPackage}}.api.*;
+import {{invokerPackage}}.ws.WsAddress;
+import java.time.Duration;
+
+public abstract class ApiClientFactory {
+
+    private static StreamingClient streamingClient;
+    private static Boolean initialised = false;
+    {{#apiInfo}}{{#apis}}private static {{classname}} {{#lambda.camelcase}}{{classname}}{{/lambda.camelcase}};
+    {{/apis}}{{/apiInfo}}
+
+    public static void initialise() throws Exception {
+        if(initialised) return;
+
+        ApiClientFactory.initialised = true;
+
+        if(GatewayApiClientConfig.isWebsocket())
+            streamingClient = new StreamingClient(new WsAddress().getAddress());
+    }
+
+    private static void init() {
+        try {
+            initialise();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static Boolean getInitialised() {
+        return initialised;
+    }
+
+    {{#apiInfo}}{{#apis}} public static {{classname}} get{{classname}}() {
+        if(ApiClientFactory.{{#lambda.camelcase}}{{classname}}{{/lambda.camelcase}} == null) {
+            init();
+
+            ApiClientFactory.{{#lambda.camelcase}}{{classname}}{{/lambda.camelcase}} = (GatewayApiClientConfig.isWebsocket())
+                    ? new {{classname}}Ws(ApiRestClientFactory.getApiClient(), streamingClient, Duration.ofSeconds(5))
+                    : new {{classname}}(ApiRestClientFactory.getApiClient());
+        }
+
+        return ApiClientFactory.{{#lambda.camelcase}}{{classname}}{{/lambda.camelcase}};
+    }
+
+    {{/apis}}{{/apiInfo}}
+}
